@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  resilience-service:
+    build: .
+    ports:
+      - "8088:8088"
+    environment:
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://host.docker.internal:8761/eureka/
+    restart: unless-stopped
+
